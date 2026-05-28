@@ -3,6 +3,7 @@
         background: #1a1a1a;
         color: #cccccc;
         padding: 60px 30px 30px;
+        margin-top: auto;
     }
 
     .footer-inner {
@@ -193,7 +194,7 @@
             <h4>Contacto</h4>
             <ul>
                 <li><a href="#"><i class="fas fa-envelope"></i> info@keymarket.ni</a></li>
-                <li><a href="#"><i class="fas fa-phone"></i> +505 8888 8888</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> +505 8618 1155</a></li>
                 <li><a href="#"><i class="fas fa-map-marker-alt"></i> Managua, Nicaragua</a></li>
                 <li><a href="#"><i class="fas fa-clock"></i> Lun - Vie: 8am - 6pm</a></li>
             </ul>

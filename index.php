@@ -1,4 +1,4 @@
-<?php include 'components/header.php'; ?>
+<?php include __DIR__ . '/components/header.php'; ?>
 
 <style>
     .hero {
@@ -429,6 +429,74 @@
         </div>
     </div>
 
+    <!-- ========== Featured Licenses ========== -->
+    <?php
+    $stmt = $pdo->query("SELECT l.*, c.nombre AS cat_nombre, c.slug AS cat_slug FROM `licencias` l LEFT JOIN `categorias` c ON l.categoria_id = c.id WHERE l.activo = 1 AND l.destacado = 1 ORDER BY l.id DESC LIMIT 4");
+    $destacadas = $stmt->fetchAll();
+    ?>
+    <?php if (count($destacadas) > 0): ?>
+    <style>
+        .featured-section { max-width: 1100px; margin: 0 auto; padding: 80px 20px 40px; }
+        .featured-section .section-title { margin-bottom: 32px; }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .featured-card {
+            background: #fff; border-radius: 14px; overflow: hidden;
+            border: 1px solid #eee; transition: all .25s ease;
+            text-decoration: none; color: inherit; display: flex; flex-direction: column;
+        }
+        .featured-card:hover {
+            transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08);
+            border-color: #ddd;
+        }
+        .featured-card-img {
+            width: 100%; height: 160px; background: #f8f8f8;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .featured-card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .featured-card-img .no-img { font-size: 2rem; color: #ddd; }
+        .featured-card-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+        .featured-card-body h3 { font-size: .95rem; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+        .featured-card-body .cat-label { font-size: .75rem; color: #999; margin-bottom: 10px; display: flex; align-items: center; gap: 4px; }
+        .featured-card-body .price { font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin-top: auto; padding-top: 10px; }
+        .featured-card-body .price .old { font-size: .82rem; color: #999; text-decoration: line-through; margin-left: 6px; font-weight: 400; }
+        .featured-card-body .price .oferta { color: #dc2626; }
+    </style>
+    <section class="featured-section">
+        <div class="section-label"><i class="fas fa-star"></i> DESTACADOS</div>
+        <h2 class="section-title">Licencias más populares</h2>
+        <div class="featured-grid">
+            <?php foreach ($destacadas as $l): ?>
+                <a href="/licencia/<?= htmlspecialchars($l['slug']) ?>" class="featured-card">
+                    <div class="featured-card-img">
+                        <?php if ($l['imagen_1']): ?>
+                            <img src="/<?= htmlspecialchars($l['imagen_1']) ?>" alt="<?= htmlspecialchars($l['nombre']) ?>">
+                        <?php else: ?>
+                            <div class="no-img"><i class="fas fa-key"></i></div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="featured-card-body">
+                        <h3><?= htmlspecialchars($l['nombre']) ?></h3>
+                        <div class="cat-label"><i class="fas fa-tag"></i> <?= htmlspecialchars($l['cat_nombre']) ?></div>
+                        <div class="price">
+                            <?php if ($l['en_oferta'] && $l['precio_oferta']): ?>
+                                <span class="oferta"><?= formatoPrecio($l['precio_oferta']) ?></span>
+                                <span class="old"><?= formatoPrecio($l['precio']) ?></span>
+                            <?php else: ?>
+                                <?= formatoPrecio($l['precio']) ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <!-- ========== How it Works ========== -->
     <section class="section">
         <div class="section-label"><i class="fas fa-list-ol"></i> PROCESO</div>
@@ -512,4 +580,4 @@
     </section>
 </main>
 
-<?php include 'components/footer.php'; ?>
+<?php include __DIR__ . '/components/footer.php'; ?>

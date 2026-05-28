@@ -1,0 +1,9 @@
+{
+    "last_page": "\/categoria\/office",
+    "last_method": "GET",
+    "last_route": "\/categoria\/office",
+    "_updated": "2026-05-28 22:07:29",
+    "last_action": "editando_licencia",
+    "last_edit_id": 1,
+    "last_edit_nombre": "Office 2016 Profesional Plus"
+}
