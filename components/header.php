@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
         * {
             margin: 0;
@@ -70,7 +72,9 @@
         }
 
         .header-nav li a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 8px 18px;
             text-decoration: none;
             font-size: 0.9rem;
@@ -109,6 +113,9 @@
         }
 
         .btn-login {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             padding: 9px 24px;
             background: #1a1a1a;
             color: #ffffff;
@@ -205,14 +212,14 @@
             </button>
 
             <ul class="header-nav" id="headerNav">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/diseno">Diseño</a></li>
-                <li><a href="/office">Office</a></li>
-                <li><a href="/arquitectura">Arquitectura</a></li>
+                <li><a href="/"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="/diseno"><i class="fas fa-paint-brush"></i> Diseño</a></li>
+                <li><a href="/office"><i class="fas fa-file-word"></i> Office</a></li>
+                <li><a href="/arquitectura"><i class="fas fa-building"></i> Arquitectura</a></li>
             </ul>
 
             <div class="header-right">
-                <a href="/login" class="btn-login">Iniciar sesión</a>
+                <a href="/login" class="btn-login"><i class="fas fa-user"></i> Iniciar sesión</a>
             </div>
         </div>
     </header>

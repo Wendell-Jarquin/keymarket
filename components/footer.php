@@ -61,6 +61,9 @@
     }
 
     .footer-col ul li a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         color: #999999;
         text-decoration: none;
         font-size: 0.9rem;
@@ -124,6 +127,10 @@
         transform: translateY(-2px);
     }
 
+    .social-links a i {
+        font-size: 1.1rem;
+    }
+
     @media (max-width: 768px) {
         .footer {
             padding: 40px 20px 20px;
@@ -156,9 +163,9 @@
             </a>
             <p>Licencias de software originales al mejor precio. Diseño, Office, Arquitectura y más, con entrega inmediata en Nicaragua.</p>
             <div class="social-links">
-                <a href="#" aria-label="Facebook">FB</a>
-                <a href="#" aria-label="Instagram">IG</a>
-                <a href="#" aria-label="LinkedIn">IN</a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
 
@@ -185,10 +192,10 @@
         <div class="footer-col">
             <h4>Contacto</h4>
             <ul>
-                <li><a href="#">info@keymarket.ni</a></li>
-                <li><a href="#">+505 8888 8888</a></li>
-                <li><a href="#">Managua, Nicaragua</a></li>
-                <li><a href="#">Lun - Vie: 8am - 6pm</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> info@keymarket.ni</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> +505 8888 8888</a></li>
+                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Managua, Nicaragua</a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> Lun - Vie: 8am - 6pm</a></li>
             </ul>
         </div>
     </div>
